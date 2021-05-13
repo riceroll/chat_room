@@ -1,0 +1,167 @@
+<!doctype html>
+<!--
+  Copyright 2015 Google Inc. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+      https://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Learn how to use the Firebase platform on the Web">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dobline Channel</title>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Friendly Chat">
+  <meta name="theme-color" content="#303F9F">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Friendly Chat">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+
+  <!-- Tile icon for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <meta name="msapplication-navbutton-color" content="#303F9F">
+
+  <!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+  <!-- App Styling -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <!-- TODO: Enable First Input Delay polyfill library. -->
+    <script type="text/javascript">!function(n,e){var t,o,i,c=[],f={passive:!0,capture:!0},r=new Date,a="pointerup",u="pointercancel";function p(n,c){t||(t=c,o=n,i=new Date,w(e),s())}function s(){o>=0&&o<i-r&&(c.forEach(function(n){n(o,t)}),c=[])}function l(t){if(t.cancelable){var o=(t.timeStamp>1e12?new Date:performance.now())-t.timeStamp;"pointerdown"==t.type?function(t,o){function i(){p(t,o),r()}function c(){r()}function r(){e(a,i,f),e(u,c,f)}n(a,i,f),n(u,c,f)}(o,t):p(o,t)}}function w(n){["click","mousedown","keydown","touchstart","pointerdown"].forEach(function(e){n(e,l,f)})}w(n),self.perfMetrics=self.perfMetrics||{},self.perfMetrics.onFirstInputDelay=function(n){c.push(n),s()}}(addEventListener,removeEventListener);</script>
+
+</head>
+<body>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+  <!-- Header section containing logo -->
+  <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700" style="background-color: #191919!important;">
+    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+      <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+<!--        <h3><i class="material-icons">chat_bubble_outline</i> Friendly Chat</h3>-->
+          <svg
+            style="height: 100%"
+            viewBox="0 0 227 77" id="svg--doblin-logo-white" xmlns="http://www.w3.org/2000/svg"><g fill="#FFFFFE" fill-rule="evenodd"><path d="M84.678 21.26c-3.13 0-4.94 2.951-4.94 6.9 0 4.009 1.867 6.812 4.94 6.812 3.108 0 4.885-2.956 4.885-6.9 0-3.678-1.718-6.812-4.885-6.812m24.143 8.046h-1.567v5.723c.451.065.993.065 1.778.065 2.077 0 3.918-.816 3.918-2.955 0-2.023-1.841-2.833-4.129-2.833m3.645-5.783c0-1.542-1.174-2.353-3.255-2.353-1.023 0-1.596.057-1.957.121v4.729h1.508c2.443 0 3.704-.994 3.704-2.497"></path><path d="M177.531 38.285h-4.821l-4.339-7.837c-1.204-2.166-2.561-4.79-3.527-7.17h-.117c.151 2.716.209 5.575.209 8.891v6.116h-4.22v-20.31h5.364l4.221 7.445c1.206 2.134 2.383 4.672 3.317 6.958h.06c-.274-2.684-.366-5.421-.366-8.497v-5.906h4.219v20.31zm-30.651.004h4.584v-20.31h-4.584v20.31zm-8.01-.005h-12.657V17.975h4.577v16.453h8.08v3.856zm-23.208-1.625c-1.476 1.177-3.948 1.839-7.987 1.839-2.26 0-3.944-.152-4.971-.301V18.246c1.205-.21 3.614-.424 5.937-.424 2.805 0 4.52.271 6.024 1.151 1.42.75 2.415 2.135 2.415 4.002 0 1.777-1.057 3.438-3.345 4.314v.057c2.317.605 4.037 2.384 4.037 4.974 0 1.867-.845 3.314-2.11 4.339zm-31.221 1.96c-5.997 0-9.553-4.549-9.553-10.367 0-6.089 3.914-10.639 9.883-10.639 6.239 0 9.644 4.672 9.644 10.307 0 6.689-4.009 10.699-9.974 10.699zm-20.254-2.744c-2.14 1.777-5.427 2.622-9.404 2.622-2.379 0-4.097-.149-5.213-.301v-19.92c1.688-.273 3.887-.453 6.176-.453 3.89 0 6.42.728 8.348 2.175 2.109 1.56 3.438 4.065 3.438 7.653 0 3.887-1.419 6.566-3.345 8.224zM113.551.339C51.061.339.398 12.778.398 28.115c0 15.34 50.663 27.776 113.153 27.776 62.495 0 113.154-12.436 113.154-27.776 0-15.337-50.659-27.776-113.154-27.776z"></path><path d="M56.229 21.349c-.994 0-1.689.095-2.079.182v13.288c.39.088 1.053.088 1.596.088 4.191.034 6.932-2.254 6.932-7.107 0-4.221-2.472-6.451-6.449-6.451m56.237 2.174c0-1.542-1.174-2.353-3.255-2.353-1.023 0-1.596.057-1.957.121v4.729h1.508c2.443 0 3.704-.994 3.704-2.497m-3.645 5.783h-1.567v5.723c.451.065.993.065 1.778.065 2.077 0 3.918-.816 3.918-2.955 0-2.023-1.841-2.833-4.129-2.833"></path><path d="M56.229 21.349c-.994 0-1.689.095-2.079.182v13.288c.39.088 1.053.088 1.596.088 4.191.034 6.932-2.254 6.932-7.107 0-4.221-2.472-6.451-6.449-6.451"></path><path d="M177.531 38.285h-4.821l-4.339-7.837c-1.204-2.166-2.561-4.79-3.527-7.17h-.117c.151 2.716.209 5.575.209 8.891v6.116h-4.22v-20.31h5.364l4.221 7.445c1.206 2.134 2.383 4.672 3.317 6.958h.06c-.274-2.684-.366-5.421-.366-8.497v-5.906h4.219v20.31zm-30.651.004h4.584v-20.31h-4.584v20.31zm-8.011-.005h-12.656V17.975h4.577v16.453h8.079v3.856zm-23.207-1.625c-1.476 1.177-3.948 1.839-7.988 1.839-2.259 0-3.944-.152-4.97-.301V18.246c1.205-.21 3.614-.424 5.937-.424 2.805 0 4.52.271 6.024 1.151 1.42.75 2.415 2.135 2.415 4.002 0 1.777-1.057 3.438-3.345 4.314v.057c2.317.605 4.037 2.384 4.037 4.974 0 1.867-.845 3.314-2.11 4.339zm-31.221 1.96c-5.997 0-9.553-4.549-9.553-10.367 0-6.089 3.914-10.639 9.883-10.639 6.239 0 9.644 4.672 9.644 10.307 0 6.689-4.009 10.699-9.974 10.699zm-20.254-2.744c-2.14 1.777-5.427 2.622-9.404 2.622-2.379 0-4.097-.149-5.213-.301v-19.92c1.688-.273 3.887-.453 6.176-.453 3.89 0 6.42.728 8.348 2.175 2.109 1.56 3.438 4.065 3.438 7.653 0 3.887-1.419 6.566-3.345 8.224zM113.551.339C51.061.339.398 12.778.398 28.115c0 15.34 50.663 27.776 113.153 27.776 62.495 0 113.154-12.436 113.154-27.776 0-15.337-50.659-27.776-113.154-27.776z"></path><path d="M84.678 21.26c-3.13 0-4.94 2.951-4.94 6.9 0 4.009 1.867 6.812 4.94 6.812 3.108 0 4.885-2.956 4.885-6.9 0-3.678-1.718-6.812-4.885-6.812M45.392 75.221c.658 0 1.188-.184 1.586-.552.398-.368.599-.883.599-1.547v-.741l-1.097.046c-.854.031-1.476.174-1.863.429-.389.254-.583.644-.583 1.169 0 .381.113.675.339.884.226.208.566.312 1.019.312zm2.701 1.235l-.362-1.188h-.063c-.411.519-.825.873-1.242 1.061-.417.188-.952.281-1.605.281-.839 0-1.493-.226-1.964-.679-.472-.452-.707-1.093-.707-1.922 0-.879.327-1.543.98-1.991.654-.448 1.65-.692 2.988-.733l1.473-.047v-.455c0-.545-.127-.953-.382-1.223-.254-.27-.649-.406-1.184-.406-.438 0-.857.065-1.258.194-.401.128-.788.28-1.158.455l-.587-1.297a6.381 6.381 0 011.52-.552 7.01 7.01 0 011.56-.189c1.086 0 1.905.237 2.458.71.554.474.83 1.217.83 2.231v5.75h-1.297zm15.36-5.688c0-2.702-1.264-4.053-3.79-4.053h-1.598v8.19h1.312c2.717 0 4.076-1.379 4.076-4.137zm1.945-.062c0 1.863-.518 3.287-1.552 4.272-1.034.985-2.523 1.478-4.469 1.478H56.22V65.172h3.489c1.796 0 3.193.484 4.191 1.451.999.967 1.498 2.328 1.498 4.083zm5.626-1.567c-.576 0-1.038.183-1.385.548-.348.365-.555.898-.622 1.598h3.875c-.011-.705-.18-1.239-.51-1.602-.329-.363-.782-.544-1.358-.544zm.332 7.471c-1.327 0-2.365-.387-3.114-1.161-.749-.775-1.123-1.841-1.123-3.199 0-1.395.347-2.491 1.042-3.289.694-.797 1.649-1.196 2.863-1.196 1.127 0 2.017.342 2.671 1.027.653.684.98 1.626.98 2.825v.98h-5.688c.025.828.249 1.465.671 1.91.422.445 1.016.668 1.783.668a6.6 6.6 0 001.409-.143 7.307 7.307 0 001.4-.475v1.475c-.442.211-.89.36-1.342.447a8.28 8.28 0 01-1.552.131zm5.381-.154h1.813v-12.01h-1.813zm5.764-4.284c0 1.971.728 2.956 2.185 2.956 1.44 0 2.161-.985 2.161-2.956 0-1.95-.725-2.925-2.177-2.925-.761 0-1.313.253-1.656.756-.342.505-.513 1.228-.513 2.169zm6.213 0c0 1.395-.357 2.483-1.072 3.265-.716.782-1.711 1.173-2.987 1.173-.798 0-1.503-.18-2.115-.54a3.56 3.56 0 01-1.413-1.551c-.329-.674-.494-1.456-.494-2.347 0-1.384.356-2.464 1.066-3.241.71-.777 1.711-1.166 3.002-1.166 1.235 0 2.213.398 2.933 1.193.72.794 1.08 1.866 1.08 3.214zm2.085 4.284h1.814v-8.537h-1.814v8.537zm-.108-10.798c0-.324.089-.573.266-.749.178-.175.431-.262.76-.262.32 0 .568.087.745.262.178.176.267.425.267.749 0 .309-.089.552-.267.729-.177.178-.425.267-.745.267-.329 0-.582-.089-.76-.267-.177-.177-.266-.42-.266-.729zm7.695 9.486a4.41 4.41 0 001.328-.208v1.366c-.201.087-.46.16-.776.22a5.36 5.36 0 01-.984.088c-1.718 0-2.578-.905-2.578-2.716v-4.6H94.21v-.803l1.251-.664.618-1.806h1.119v1.898h2.431v1.375h-2.431v4.569c0 .437.109.76.328.969.219.208.506.312.86.312m6.213 0c.442 0 .885-.069 1.328-.208v1.366c-.201.087-.46.16-.776.22a5.371 5.371 0 01-.985.088c-1.717 0-2.577-.905-2.577-2.716v-4.6h-1.166v-.803l1.251-.664.617-1.806h1.12v1.898h2.431v1.375h-2.431v4.569c0 .437.109.76.328.969.218.208.506.312.86.312m6.43-6.005c-.576 0-1.038.183-1.385.548-.348.365-.555.898-.622 1.598h3.875c-.011-.705-.18-1.239-.51-1.602-.329-.363-.782-.544-1.358-.544zm.332 7.471c-1.327 0-2.365-.387-3.114-1.161-.749-.775-1.123-1.841-1.123-3.199 0-1.395.347-2.491 1.041-3.289.695-.797 1.65-1.196 2.864-1.196 1.127 0 2.017.342 2.671 1.027.653.684.98 1.626.98 2.825v.98h-5.688c.025.828.249 1.465.671 1.91.421.445 1.016.668 1.783.668a6.6 6.6 0 001.409-.143 7.307 7.307 0 001.4-.475v1.475c-.442.211-.89.36-1.342.447-.454.087-.97.131-1.552.131zm13.376-7.363c-.731 0-1.257.215-1.578.645-.322.429-.488 1.149-.498 2.157v.123c0 1.04.165 1.792.494 2.258.329.466.867.698 1.613.698.643 0 1.131-.254 1.463-.764.331-.509.497-1.245.497-2.207 0-1.94-.663-2.91-1.991-2.91zm.47-1.482c1.066 0 1.896.386 2.49 1.158.594.772.891 1.855.891 3.249 0 1.4-.3 2.49-.903 3.269-.602.78-1.437 1.169-2.508 1.169-1.081 0-1.92-.388-2.516-1.165h-.123l-.332 1.011h-1.359v-12.01h1.814v2.856c0 .211-.01.525-.031.942-.021.417-.036.682-.047.795h.078c.576-.849 1.425-1.274 2.546-1.274zm11.509 8.691l-.255-1.119h-.092a2.58 2.58 0 01-1.078.934c-.465.226-.997.339-1.593.339-1.034 0-1.806-.257-2.316-.771-.508-.515-.763-1.295-.763-2.339v-5.581h1.829v5.265c0 .653.134 1.143.401 1.47.268.327.687.49 1.258.49.762 0 1.321-.228 1.679-.683.357-.456.537-1.218.537-2.289v-4.253h1.821v8.537h-1.428m9.747-2.431c0 .833-.303 1.473-.91 1.918-.607.445-1.477.667-2.609.667-1.137 0-2.051-.172-2.74-.517v-1.567c1.003.464 1.937.695 2.801.695 1.118 0 1.675-.337 1.675-1.011a.802.802 0 00-.184-.54c-.124-.144-.328-.293-.611-.448a10.64 10.64 0 00-1.18-.525c-.983-.381-1.648-.761-1.996-1.142-.347-.381-.52-.875-.52-1.482 0-.731.294-1.298.884-1.702.589-.404 1.389-.606 2.403-.606 1.004 0 1.953.204 2.849.61l-.587 1.366c-.921-.381-1.696-.571-2.323-.571-.958 0-1.436.273-1.436.818 0 .268.125.494.375.68.249.185.793.439 1.632.764.705.272 1.217.522 1.536.748.319.227.556.488.71.783.154.296.231.65.231 1.062m1.961 2.431h1.814v-8.537h-1.814v8.537zm-.108-10.798c0-.324.089-.573.266-.749.178-.175.431-.262.76-.262.32 0 .568.087.745.262.178.176.267.425.267.749 0 .309-.089.552-.267.729-.177.178-.425.267-.745.267-.329 0-.582-.089-.76-.267-.177-.177-.266-.42-.266-.729zm12.025 10.798h-1.821v-5.248c0-.659-.133-1.15-.397-1.475-.266-.324-.686-.486-1.263-.486-.767 0-1.327.227-1.682.679-.355.453-.533 1.212-.533 2.277v4.253h-1.813v-8.537h1.419l.255 1.12h.093a2.516 2.516 0 011.096-.942 3.674 3.674 0 011.574-.332c2.048 0 3.072 1.042 3.072 3.126v5.565m5.92-7.317c-.576 0-1.038.183-1.385.548-.347.365-.554.898-.622 1.598h3.875c-.01-.705-.179-1.239-.509-1.602s-.783-.544-1.359-.544zm.332 7.471c-1.327 0-2.365-.387-3.114-1.161-.749-.775-1.123-1.841-1.123-3.199 0-1.395.348-2.491 1.042-3.289.694-.797 1.649-1.196 2.863-1.196 1.127 0 2.018.342 2.671 1.027.653.684.981 1.626.981 2.825v.98h-5.689c.025.828.249 1.465.671 1.91.422.445 1.017.668 1.783.668.505 0 .974-.048 1.409-.143a7.314 7.314 0 001.401-.475v1.475c-.443.211-.891.36-1.343.447a8.28 8.28 0 01-1.552.131zm11.114-2.585c0 .833-.303 1.473-.91 1.918-.607.445-1.477.667-2.609.667-1.137 0-2.051-.172-2.74-.517v-1.567c1.004.464 1.937.695 2.801.695 1.118 0 1.675-.337 1.675-1.011a.802.802 0 00-.184-.54c-.124-.144-.327-.293-.611-.448a10.555 10.555 0 00-1.18-.525c-.983-.381-1.648-.761-1.995-1.142-.348-.381-.521-.875-.521-1.482 0-.731.294-1.298.884-1.702.589-.404 1.39-.606 2.403-.606 1.004 0 1.953.204 2.849.61l-.587 1.366c-.921-.381-1.695-.571-2.323-.571-.957 0-1.436.273-1.436.818 0 .268.125.494.375.68.249.185.793.439 1.632.764.705.272 1.217.522 1.536.748.319.227.556.488.71.783.154.296.231.65.231 1.062m7.696 0c0 .833-.304 1.473-.91 1.918-.608.445-1.478.667-2.61.667-1.136 0-2.051-.172-2.74-.517v-1.567c1.004.464 1.938.695 2.802.695 1.117 0 1.675-.337 1.675-1.011a.803.803 0 00-.185-.54c-.124-.144-.327-.293-.61-.448a10.669 10.669 0 00-1.181-.525c-.982-.381-1.647-.761-1.995-1.142-.348-.381-.521-.875-.521-1.482 0-.731.294-1.298.884-1.702.589-.404 1.39-.606 2.403-.606 1.004 0 1.954.204 2.849.61l-.587 1.366c-.921-.381-1.695-.571-2.323-.571-.957 0-1.436.273-1.436.818 0 .268.125.494.375.68.249.185.793.439 1.632.764.705.272 1.217.522 1.536.748.32.227.556.488.71.783.155.296.232.65.232 1.062"></path></g></svg>
+
+
+      </div>
+      <div id="user-container">
+        <div hidden id="user-pic"></div>
+        <div hidden id="user-name"></div>
+        <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+          Sign-out
+        </button>
+        <button id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+          <i class="material-icons">account_circle</i>Sign-in with Google
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content mdl-color--grey-100">
+    <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
+
+      <div id="contacts" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+        <div id="0" class="contact selected">  <!--team, welcome! In our company, there is no, trip to mars.-->
+          <img class="photo" alt="" src='https://cdn.iconscout.com/icon/free/png-512/group-chat-2193254-1878104.png'/>
+          <div class="nameCard">General Channel</div>
+        </div>
+        <div id="1" class="contact"> <!--asian human team leader. Our company. xxx will give you a tour-->
+          <img class="photo" alt="" src='https://techondemand.in/wp-content/uploads/2020/06/Robots-Square-min-1.jpg'/>
+          <div class="nameCard">Andrew Alpha</div>
+        </div>
+        <div id="2" class="contact"> <!--black human, invite to local tour, share same interest-->
+          <img class="photo" alt="" src='https://media-exp1.licdn.com/dms/image/C4D03AQGzjkR5XAOhTA/profile-displayphoto-shrink_800_800/0/1540320155905?e=1625702400&v=beta&t=Wm1L4MAq4hB4tuNOAGbTJT8e6yT0_yrXwDStUxkcU3Q'/>
+          <div class="nameCard">Zack Schmidt</div>
+        </div>
+        <div id="3" class="contact"> <!--robot, I can implement any you want-->
+          <img class="photo" alt="" src='https://media-exp1.licdn.com/dms/image/C4D03AQGANTVbxT9SCg/profile-displayphoto-shrink_400_400/0/1517489943020?e=1625702400&v=beta&t=WxzGhqLrDdeSjmylX_YnI7TR61j1PoZXz66kE0p9L5A'/>
+          <div class="nameCard">Debbie So</div>
+        </div>
+
+        <div id="4" class="contact">  <!--HR, salary is credit-->
+          <img class="photo" alt="" src='https://media-exp1.licdn.com/dms/image/C4E03AQG8xEu9-lAHog/profile-displayphoto-shrink_400_400/0/1551040935745?e=1625702400&v=beta&t=ttHoZUo6u5pI0AwbY2-ZZ7IeAj1U0zbr7PBZTrKrhbg'/>
+          <div class="nameCard">Anjali Chandra</div>
+        </div>
+
+        <div id="5" class="contact">  <!--man   -->
+          <img class="photo" alt="" src='https://pbs.twimg.com/media/E0sueEiXIAAnrtk?format=png&name=small'/>
+          <div class="nameCard">Luffy Liu</div>
+        </div>
+
+        <div id="6" class="contact">  <!--Cat, Hi I am Luffy. Nice to meet u! I am the flavorist of the company. happy to be a part of the. I am the   -->
+          <img class="photo" alt="" src='https://media-exp1.licdn.com/dms/image/C5603AQGvAPNCDSPHlA/profile-displayphoto-shrink_400_400/0/1602207065087?e=1625702400&v=beta&t=Vm2qBLQqXu8mYNNbMWyZBhZ3bbv5OjLjquCQazUugTY'/>
+          <div class="nameCard">Julius Tapper</div>
+        </div>
+
+      </div>
+
+      <!-- Messages container -->
+      <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--8-col-desktop">
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div id="messages">
+          </div>
+          <form id="message-form" action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="message" autocomplete="off">
+              <label class="mdl-textfield__label" for="message">Message...</label>
+            </div>
+            <button id="submit" disabled type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+              Send
+            </button>
+          </form>
+          <form id="image-form" action="#">
+            <input id="mediaCapture" type="file" accept="image/*" capture="camera">
+            <button id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400" style="background-color: transparent!important; box-shadow: none; color: #191919">
+              <i class="material-icons">image</i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- Import and configure the Firebase SDK -->
+<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+<!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+<script src="/__/firebase/8.4.3/firebase-app.js"></script>
+<script src="/__/firebase/8.4.3/firebase-auth.js"></script>
+<script src="/__/firebase/8.4.3/firebase-storage.js"></script>
+<script src="/__/firebase/8.4.3/firebase-messaging.js"></script>
+<script src="/__/firebase/8.4.3/firebase-firestore.js"></script>
+<script src="/__/firebase/8.4.3/firebase-performance.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
